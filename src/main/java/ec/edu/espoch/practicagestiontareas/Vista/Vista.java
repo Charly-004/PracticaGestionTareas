@@ -4,20 +4,20 @@
  */
 package ec.edu.espoch.practicagestiontareas.Vista;
 
-import ec.edu.espoch.practicagestiontareas.tester.TesterVista;
+import ec.edu.espoch.practicagestiontareas.Controlador.Controlador;
 
 /**
  *
  * @author SO-LAB1-PC20
  */
 public class Vista extends javax.swing.JFrame {
-    private TesterVista tester;
+    private Controlador tester;
     /**
      * Creates new form Vista
      */
     public Vista() {
         initComponents();
-        this.tester = new TesterVista(this);
+        this.tester = new Controlador(this);
     }
 
     /**
@@ -191,7 +191,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
         // TODO add your handling code here:
-        this.tester.prueba();
+        this.tester.agregarTarea();
     }//GEN-LAST:event_BtnMostrarActionPerformed
     
     public String getTitulo(){
