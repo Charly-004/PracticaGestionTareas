@@ -26,57 +26,157 @@ public class Vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        TextDescripcion = new javax.swing.JTextField();
+        lbdTitulo = new javax.swing.JLabel();
+        lbdTituloTarea = new javax.swing.JLabel();
+        lbdDescripción = new javax.swing.JLabel();
+        TextTituloTarea = new javax.swing.JTextField();
+        RdbTareaSI = new javax.swing.JRadioButton();
+        RdbTareaNo = new javax.swing.JRadioButton();
+        BtnMostrar = new javax.swing.JButton();
+        BtnLimpiar = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        MenuTareas = new javax.swing.JMenu();
+        mItemNueva = new javax.swing.JMenuItem();
+        mIPendientes = new javax.swing.JMenuItem();
+        mICompletas = new javax.swing.JMenuItem();
+        MenuSalir = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        TextDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextDescripcionActionPerformed(evt);
+            }
+        });
+
+        lbdTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbdTitulo.setText("Gestión de Tareas");
+
+        lbdTituloTarea.setText("Título:");
+
+        lbdDescripción.setText("Descripción:");
+
+        TextTituloTarea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextTituloTareaActionPerformed(evt);
+            }
+        });
+
+        RdbTareaSI.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        RdbTareaSI.setText("Completa");
+
+        RdbTareaNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        RdbTareaNo.setText("Incompleta");
+
+        BtnMostrar.setText("Guardar");
+
+        BtnLimpiar.setText("Limpiar");
+
+        MenuTareas.setText("Tarea");
+
+        mItemNueva.setText("Nueva");
+        MenuTareas.add(mItemNueva);
+
+        mIPendientes.setText("Pendientes");
+        MenuTareas.add(mIPendientes);
+
+        mICompletas.setText("Completas");
+        MenuTareas.add(mICompletas);
+
+        jMenuBar1.add(MenuTareas);
+
+        MenuSalir.setText("Salir");
+        jMenuBar1.add(MenuSalir);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbdTitulo)
+                .addGap(114, 114, 114))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(lbdTituloTarea)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TextTituloTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbdDescripción)
+                            .addComponent(RdbTareaSI))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RdbTareaNo)
+                            .addComponent(TextDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnLimpiar))))
+                .addGap(65, 65, 65))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(BtnMostrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lbdTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbdTituloTarea)
+                    .addComponent(TextTituloTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbdDescripción)
+                    .addComponent(TextDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RdbTareaSI)
+                    .addComponent(RdbTareaNo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnLimpiar)
+                .addGap(47, 47, 47)
+                .addComponent(BtnMostrar)
+                .addGap(54, 54, 54))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void TextTituloTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextTituloTareaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextTituloTareaActionPerformed
+
+    private void TextDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextDescripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextDescripcionActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnLimpiar;
+    private javax.swing.JButton BtnMostrar;
+    private javax.swing.JMenu MenuSalir;
+    private javax.swing.JMenu MenuTareas;
+    private javax.swing.JRadioButton RdbTareaNo;
+    private javax.swing.JRadioButton RdbTareaSI;
+    private javax.swing.JTextField TextDescripcion;
+    private javax.swing.JTextField TextTituloTarea;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lbdDescripción;
+    private javax.swing.JLabel lbdTitulo;
+    private javax.swing.JLabel lbdTituloTarea;
+    private javax.swing.JMenuItem mICompletas;
+    private javax.swing.JMenuItem mIPendientes;
+    private javax.swing.JMenuItem mItemNueva;
     // End of variables declaration//GEN-END:variables
 }

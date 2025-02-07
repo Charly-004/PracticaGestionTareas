@@ -8,6 +8,6 @@ package ec.edu.espoch.practicagestiontareas.tester;
  *
  * @author SO-LAB1-PC20
  */
-public class TesterVista {
+public class TsesterVista {
     
 }
