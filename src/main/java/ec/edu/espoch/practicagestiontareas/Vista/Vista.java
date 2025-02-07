@@ -4,17 +4,20 @@
  */
 package ec.edu.espoch.practicagestiontareas.Vista;
 
+import ec.edu.espoch.practicagestiontareas.tester.TesterVista;
+
 /**
  *
  * @author SO-LAB1-PC20
  */
 public class Vista extends javax.swing.JFrame {
-
+    private TesterVista tester;
     /**
      * Creates new form Vista
      */
     public Vista() {
         initComponents();
+        this.tester = new TesterVista(this);
     }
 
     /**
@@ -26,27 +29,26 @@ public class Vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TextDescripcion = new javax.swing.JTextField();
+        textDescripcion = new javax.swing.JTextField();
         lbdTitulo = new javax.swing.JLabel();
         lbdTituloTarea = new javax.swing.JLabel();
         lbdDescripción = new javax.swing.JLabel();
-        TextTituloTarea = new javax.swing.JTextField();
-        RdbTareaSI = new javax.swing.JRadioButton();
-        RdbTareaNo = new javax.swing.JRadioButton();
+        textTituloTarea = new javax.swing.JTextField();
+        rdbCompleta = new javax.swing.JRadioButton();
+        rdbIncompleta = new javax.swing.JRadioButton();
         BtnMostrar = new javax.swing.JButton();
         BtnLimpiar = new javax.swing.JButton();
+        lbdError = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuTareas = new javax.swing.JMenu();
-        mItemNueva = new javax.swing.JMenuItem();
-        mIPendientes = new javax.swing.JMenuItem();
-        mICompletas = new javax.swing.JMenuItem();
+        mItemListar = new javax.swing.JMenuItem();
         MenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TextDescripcion.addActionListener(new java.awt.event.ActionListener() {
+        textDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextDescripcionActionPerformed(evt);
+                textDescripcionActionPerformed(evt);
             }
         });
 
@@ -57,32 +59,43 @@ public class Vista extends javax.swing.JFrame {
 
         lbdDescripción.setText("Descripción:");
 
-        TextTituloTarea.addActionListener(new java.awt.event.ActionListener() {
+        textTituloTarea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextTituloTareaActionPerformed(evt);
+                textTituloTareaActionPerformed(evt);
             }
         });
 
-        RdbTareaSI.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        RdbTareaSI.setText("Completa");
+        rdbCompleta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rdbCompleta.setText("Completa");
+        rdbCompleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbCompletaActionPerformed(evt);
+            }
+        });
 
-        RdbTareaNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        RdbTareaNo.setText("Incompleta");
+        rdbIncompleta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rdbIncompleta.setText("Incompleta");
 
         BtnMostrar.setText("Guardar");
+        BtnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMostrarActionPerformed(evt);
+            }
+        });
 
         BtnLimpiar.setText("Limpiar");
 
+        lbdError.setText("------------------------");
+
         MenuTareas.setText("Tarea");
 
-        mItemNueva.setText("Nueva");
-        MenuTareas.add(mItemNueva);
-
-        mIPendientes.setText("Pendientes");
-        MenuTareas.add(mIPendientes);
-
-        mICompletas.setText("Completas");
-        MenuTareas.add(mICompletas);
+        mItemListar.setText("Listar Tareas");
+        mItemListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemListarActionPerformed(evt);
+            }
+        });
+        MenuTareas.add(mItemListar);
 
         jMenuBar1.add(MenuTareas);
 
@@ -100,26 +113,33 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(lbdTitulo)
                 .addGap(114, 114, 114))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(lbdTituloTarea)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TextTituloTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
+                        .addComponent(textTituloTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbdDescripción)
-                            .addComponent(RdbTareaSI))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbdDescripción)
+                                    .addComponent(rdbCompleta)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(BtnMostrar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RdbTareaNo)
-                            .addComponent(TextDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnLimpiar))))
+                            .addComponent(rdbIncompleta)
+                            .addComponent(textDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(BtnLimpiar)))))
                 .addGap(65, 65, 65))
             .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(BtnMostrar)
+                .addGap(159, 159, 159)
+                .addComponent(lbdError)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -130,33 +150,68 @@ public class Vista extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbdTituloTarea)
-                    .addComponent(TextTituloTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textTituloTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbdDescripción)
-                    .addComponent(TextDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RdbTareaSI)
-                    .addComponent(RdbTareaNo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnLimpiar)
-                .addGap(47, 47, 47)
-                .addComponent(BtnMostrar)
+                    .addComponent(rdbCompleta)
+                    .addComponent(rdbIncompleta))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnMostrar)
+                    .addComponent(BtnLimpiar))
+                .addGap(41, 41, 41)
+                .addComponent(lbdError)
                 .addGap(54, 54, 54))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextTituloTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextTituloTareaActionPerformed
+    private void textTituloTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTituloTareaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextTituloTareaActionPerformed
+    }//GEN-LAST:event_textTituloTareaActionPerformed
 
-    private void TextDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextDescripcionActionPerformed
+    private void textDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDescripcionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextDescripcionActionPerformed
+    }//GEN-LAST:event_textDescripcionActionPerformed
 
+    private void rdbCompletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCompletaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdbCompletaActionPerformed
+
+    private void mItemListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemListarActionPerformed
+        // TODO add your handling code here:
+        ListarTareas objListarTareas = new ListarTareas();
+        objListarTareas.setVisible(true);
+    }//GEN-LAST:event_mItemListarActionPerformed
+
+    private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
+        // TODO add your handling code here:
+        this.tester.prueba();
+    }//GEN-LAST:event_BtnMostrarActionPerformed
+    
+    public String getTitulo(){
+     return textTituloTarea.getText();
+    }
+    
+    public String getDescripcion(){
+     return textDescripcion.getText();
+    }
+    
+    public boolean getEstado(){
+     return rdbCompleta.isSelected();
+    }
+    
+    public void error(String error){
+      lbdError.setText(error);
+    }
+    
+
+    
     /**
      * @param args the command line arguments
      */
@@ -167,16 +222,15 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton BtnMostrar;
     private javax.swing.JMenu MenuSalir;
     private javax.swing.JMenu MenuTareas;
-    private javax.swing.JRadioButton RdbTareaNo;
-    private javax.swing.JRadioButton RdbTareaSI;
-    private javax.swing.JTextField TextDescripcion;
-    private javax.swing.JTextField TextTituloTarea;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbdDescripción;
+    private javax.swing.JLabel lbdError;
     private javax.swing.JLabel lbdTitulo;
     private javax.swing.JLabel lbdTituloTarea;
-    private javax.swing.JMenuItem mICompletas;
-    private javax.swing.JMenuItem mIPendientes;
-    private javax.swing.JMenuItem mItemNueva;
+    private javax.swing.JMenuItem mItemListar;
+    private javax.swing.JRadioButton rdbCompleta;
+    private javax.swing.JRadioButton rdbIncompleta;
+    private javax.swing.JTextField textDescripcion;
+    private javax.swing.JTextField textTituloTarea;
     // End of variables declaration//GEN-END:variables
 }

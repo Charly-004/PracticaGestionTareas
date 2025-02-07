@@ -9,20 +9,13 @@
             <Property name="text" type="java.lang.String" value="Tarea"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mItemNueva">
+            <MenuItem class="javax.swing.JMenuItem" name="mItemListar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nueva"/>
+                <Property name="text" type="java.lang.String" value="Listar Tareas"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mIPendientes">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Pendientes"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mICompletas">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Completas"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mItemListarActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -63,32 +56,43 @@
               <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                       <Component id="lbdTituloTarea" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="TextTituloTarea" min="-2" pref="144" max="-2" attributes="0"/>
+                      <Component id="textTituloTarea" min="-2" pref="144" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbdDescripción" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RdbTareaSI" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lbdDescripción" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rdbCompleta" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="BtnMostrar" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="77" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RdbTareaNo" min="-2" max="-2" attributes="0"/>
-                          <Component id="TextDescripcion" min="-2" pref="144" max="-2" attributes="0"/>
-                          <Component id="BtnLimpiar" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbIncompleta" min="-2" max="-2" attributes="0"/>
+                          <Component id="textDescripcion" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="BtnLimpiar" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-              <Component id="BtnMostrar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+              <Component id="lbdError" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -101,31 +105,34 @@
               <EmptySpace pref="8" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbdTituloTarea" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TextTituloTarea" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textTituloTarea" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbdDescripción" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TextDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="RdbTareaSI" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="RdbTareaNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdbCompleta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdbIncompleta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="BtnLimpiar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Component id="BtnMostrar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="BtnMostrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="lbdError" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="TextDescripcion">
+    <Component class="javax.swing.JTextField" name="textDescripcion">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextDescripcionActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textDescripcionActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbdTitulo">
@@ -146,20 +153,23 @@
         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TextTituloTarea">
+    <Component class="javax.swing.JTextField" name="textTituloTarea">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextTituloTareaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textTituloTareaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="RdbTareaSI">
+    <Component class="javax.swing.JRadioButton" name="rdbCompleta">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Completa"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbCompletaActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="RdbTareaNo">
+    <Component class="javax.swing.JRadioButton" name="rdbIncompleta">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
@@ -171,10 +181,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnMostrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="BtnLimpiar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpiar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbdError">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="------------------------"/>
       </Properties>
     </Component>
   </SubComponents>

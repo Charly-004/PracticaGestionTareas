@@ -4,6 +4,8 @@
 
 package ec.edu.espoch.practicagestiontareas;
 
+import ec.edu.espoch.practicagestiontareas.Vista.Vista;
+
 /**
  *
  * @author SO-LAB1-PC20
@@ -11,6 +13,7 @@ package ec.edu.espoch.practicagestiontareas;
 public class PracticaGestionTareas {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Vista objVista = new Vista();
+        objVista.setVisible(true);
     }
 }
